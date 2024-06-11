@@ -1,0 +1,27 @@
+
+fun calcularCostoEstacionamiento(horas: Int, minutos: Int): Double {
+    val tiempoTotalEnHoras = horas + minutos / 60.0
+    val costoPorHora = 1500
+    return tiempoTotalEnHoras * costoPorHora
+}
+
+fun calcularPromedioNota(nota1: Double, nota2: Double, nota3: Double, nota4: Double): Double {
+    val notas = listOf(nota1, nota2, nota3, nota4)
+    val notaMenor = notas.minOrNull() ?: 0.0
+    val notasSinMenor = notas.filterNot { it == notaMenor }
+    return (notasSinMenor[0] * 0.2) + (notasSinMenor[1] * 0.3) + (notasSinMenor[2] * 0.5)
+}
+
+@RequiresApi(Build.VERSION_CODES.O)
+fun debeSacarDNI(anioNacimiento: Int): Boolean {
+    val anioActual = java.time.LocalDate.now().year
+    return (anioActual - anioNacimiento) >= 18
+}
+
+fun mostrarNumerosParesDescendente() {
+    for (i in 20 downTo 10) {
+        if (i % 2 == 0) {
+            println(i)
+        }
+    }
+}
